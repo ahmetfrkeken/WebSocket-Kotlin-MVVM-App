@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WebSocketKotlinChatApp</string>
+    <string name="there_is_no_internet_connection">Internet Bağlantısı Yok</string>
+    <string name="please_check_your_network_connection">Lütfen internet bağlantınızı kontrol edin.</string>
+    <string name="okay">Tamam</string>
+    <string name="message">Mesaj</string>
+</resources>
