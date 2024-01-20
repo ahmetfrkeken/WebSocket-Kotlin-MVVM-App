@@ -4,4 +4,6 @@
     <string name="please_check_your_network_connection">Lütfen internet bağlantınızı kontrol edin.</string>
     <string name="okay">Tamam</string>
     <string name="message">Mesaj</string>
+    <string name="there_is_no_websocket_connection">Web Socket Bağlantısı Koptu</string>
+    <string name="Error">Hata!</string>
 </resources>

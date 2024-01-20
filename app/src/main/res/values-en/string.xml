@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">WebSocketKotlinChatApp</string>
-    <string name="there_is_no_internet_connection">There is no internet connection</string>
-    <string name="please_check_your_network_connection">Please check your network connection</string>
-    <string name="okay">Okay</string>
-</resources>
