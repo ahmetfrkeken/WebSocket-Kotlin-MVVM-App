@@ -28,7 +28,7 @@ class MainViewModel
         try {
             createWebSocketClient(webSocketUrl)
         }catch (e: Exception){
-            webSocketError.value = true
+            webSocketError.postValue(true)
             println(e)
             e.printStackTrace()
         }
@@ -46,7 +46,7 @@ class MainViewModel
             }
 
             override fun onMessage(message: String?) {
-                webSocketError.value = false
+                webSocketError.postValue(false)
                 Log.d(MainFragment.TAG, "onMessage: $message")
                 setUpMessage(message)
             }
@@ -56,17 +56,24 @@ class MainViewModel
             }
 
             override fun onError(ex: Exception?) {
-                webSocketError.value = true
+                webSocketError.postValue(true)
                 Log.e(MainFragment.TAG, "onError: ${ex?.message}")
             }
         }
     }
 
     fun sendMessage(message: String?) {
-        webSocketClient.send(
-            message
-        )
-        webSocketMessage.postValue((webSocketMessage.value ?: listOf()) + Message(0, message ?: ""))
+        try {
+            webSocketError.postValue(false)
+            webSocketClient.send(
+                message
+            )
+            webSocketMessage.postValue((webSocketMessage.value ?: listOf()) + Message(0, message ?: ""))
+        }catch (e : Exception){
+            webSocketError.postValue(true)
+            println(e.localizedMessage)
+            e.printStackTrace()
+        }
     }
 
     fun setUpMessage(message: String?) {

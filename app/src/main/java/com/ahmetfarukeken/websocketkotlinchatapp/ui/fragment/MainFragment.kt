@@ -71,6 +71,9 @@ class MainFragment : Fragment() {
         bottomSheetBinding?.tvError?.text = error
         bottomSheetDialog?.show()
     }
+    private fun dismissBottomSheetDialog(){
+        bottomSheetDialog?.dismiss()
+    }
 
     private fun initRV() {
         chatAdapter = ChatAdapter()
@@ -82,13 +85,15 @@ class MainFragment : Fragment() {
     }
 
     private fun initObserve() {
-        viewModel.isWebSocketError().observe(viewLifecycleOwner, Observer {
+        viewModel.isWebSocketError().observe(requireActivity()) {
             if (it) {
                 showBottomSheetDialog(getString(R.string.there_is_no_websocket_connection))
+            }else{
+                dismissBottomSheetDialog()
             }
-        })
+        }
 
-        viewModel.getWebSocketMessage().observe(viewLifecycleOwner) {
+        viewModel.getWebSocketMessage().observe(requireActivity()) {
             chatAdapter?.updateMessages(messages = it)
         }
     }

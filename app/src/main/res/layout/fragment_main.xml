@@ -29,7 +29,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilMessage"
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/box_aliceblue_12"
@@ -44,7 +44,6 @@
                 android:background="@android:color/transparent"
                 android:hint="@string/message"
                 android:maxLines="1"
-                android:paddingTop="33dp"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
